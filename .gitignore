@@ -12,3 +12,6 @@ next-env.d.ts
 
 # クロール元画像（使用分は public/images/ にコピー済み）
 /assets/
+
+# 別リポジトリ（千手院サイトのローカルクローン）
+/kairinzan-senjuin.github.io/
