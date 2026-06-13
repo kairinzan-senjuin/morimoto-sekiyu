@@ -16,11 +16,31 @@ const MAP_URL =
   encodeURIComponent("石川県鳳珠郡穴水町字川島キ-112-1");
 
 const NAV_ITEMS = [
-  { href: "#message", label: "ご挨拶" },
+  { href: "#about", label: "ご挨拶" },
   { href: "#service", label: "サービス" },
-  { href: "#insurance", label: "保険相談" },
-  { href: "#maintenance", label: "ご予約" },
-  { href: "#company", label: "会社概要" },
+  { href: "#group", label: "グループ" },
+  { href: "#access", label: "アクセス" },
+];
+
+const GROUP_SITES = [
+  {
+    name: "チーム能登食いしん坊",
+    description: "能登食材の魅力を発信するNPO活動",
+    url: null,
+    note: "サイト移行準備中",
+  },
+  {
+    name: "海臨山 千手院",
+    description: "石川県穴水町の寺院",
+    url: "https://kairinzan-senjuin.github.io",
+    note: null,
+  },
+  {
+    name: "クリエイト",
+    description: "能登食材のオンラインショップ",
+    url: "https://create8686.com",
+    note: null,
+  },
 ];
 
 const GALLERY = [
@@ -164,8 +184,8 @@ export default function Home() {
           />
         </section>
 
-        {/* ご挨拶 */}
-        <section id="message" className="scroll-mt-20 bg-beige">
+        {/* 会社・代表メッセージ */}
+        <section id="about" className="scroll-mt-20 bg-beige">
           <div className="mx-auto max-w-3xl px-4 py-16 sm:py-20">
             <SectionHeading>ご挨拶</SectionHeading>
             <Image
@@ -214,6 +234,24 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href={RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors duration-200 hover:bg-accent-dark sm:w-auto"
+              >
+                カーメンテナンスを予約する
+              </a>
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full rounded-full border-2 border-ink px-8 py-4 text-center text-lg font-bold text-ink-strong transition-colors duration-200 hover:bg-beige sm:w-auto"
+              >
+                保険のご相談はLINEから
+              </a>
+            </div>
           </div>
         </section>
 
@@ -238,50 +276,55 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 保険相談 */}
-        <section id="insurance" className="scroll-mt-20">
-          <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:py-20">
-            <SectionHeading>生命保険のご相談</SectionHeading>
-            <p className="mt-8 text-lg leading-relaxed">
-              保険の見直しや新規ご加入など、生命保険に関するご相談を承っています。
-              <br />
-              店頭のほか、お電話・LINE・Zoomでもご相談いただけます。
+        {/* グループ紹介 */}
+        <section id="group" className="scroll-mt-20">
+          <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20">
+            <SectionHeading>グループ紹介</SectionHeading>
+            <p className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed">
+              森本石油は、能登の食や文化を発信する活動にも取り組んでいます。
             </p>
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors duration-200 hover:bg-accent-dark"
-            >
-              LINEで相談を申し込む
-            </a>
+            <div className="mt-10 grid gap-6 sm:grid-cols-3">
+              {GROUP_SITES.map((site) =>
+                site.url ? (
+                  <a
+                    key={site.name}
+                    href={site.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group rounded-2xl border border-beige bg-white p-6 transition-shadow duration-200 hover:shadow-md"
+                  >
+                    <h3 className="text-xl font-bold text-ink-strong">
+                      {site.name}
+                    </h3>
+                    <p className="mt-2 leading-relaxed">{site.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 font-bold text-accent">
+                      サイトを見る
+                      <ArrowIcon />
+                    </span>
+                  </a>
+                ) : (
+                  <div
+                    key={site.name}
+                    className="rounded-2xl border border-beige bg-white p-6"
+                  >
+                    <h3 className="text-xl font-bold text-ink-strong">
+                      {site.name}
+                    </h3>
+                    <p className="mt-2 leading-relaxed">{site.description}</p>
+                    <span className="mt-4 inline-block rounded-full bg-beige px-3 py-1 text-sm font-bold">
+                      {site.note}
+                    </span>
+                  </div>
+                ),
+              )}
+            </div>
           </div>
         </section>
 
-        {/* カーメンテナンス予約 */}
-        <section id="maintenance" className="scroll-mt-20 bg-beige">
-          <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:py-20">
-            <SectionHeading>カーメンテナンスのご予約</SectionHeading>
-            <p className="mt-8 text-lg leading-relaxed">
-              オイル交換・タイヤ交換などのカーメンテナンスは、
-              <br className="hidden sm:block" />
-              オンラインから24時間いつでもご予約いただけます。
-            </p>
-            <a
-              href={RESERVE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors duration-200 hover:bg-accent-dark"
-            >
-              オンラインで予約する
-            </a>
-          </div>
-        </section>
-
-        {/* 会社概要 */}
-        <section id="company" className="scroll-mt-20">
+        {/* アクセス・会社概要 */}
+        <section id="access" className="scroll-mt-20 bg-beige">
           <div className="mx-auto max-w-3xl px-4 py-16 sm:py-20">
-            <SectionHeading>会社概要</SectionHeading>
+            <SectionHeading>アクセス・会社概要</SectionHeading>
             <dl className="mt-8 overflow-hidden rounded-2xl border border-ink/10 bg-white">
               {[
                 ["社名", "株式会社森本石油"],
@@ -413,6 +456,26 @@ function UsersIcon() {
       <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </IconBase>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }
 
