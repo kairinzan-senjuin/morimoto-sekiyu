@@ -1,3 +1,14 @@
+import Image from "next/image";
+
+import storefront from "@/public/images/storefront.jpg";
+import greeting from "@/public/images/greeting.jpg";
+import galleryCarwash from "@/public/images/gallery-carwash.jpg";
+import galleryMaintenance from "@/public/images/gallery-maintenance.jpg";
+import galleryMascot from "@/public/images/gallery-mascot.jpg";
+import galleryCommunity from "@/public/images/gallery-community.jpg";
+import galleryKerosene from "@/public/images/gallery-kerosene.jpg";
+import galleryFestival from "@/public/images/gallery-festival.jpg";
+
 const LINE_URL = "https://lin.ee/YM3neq9";
 const RESERVE_URL = "https://timy.jp/shop/5424/?menu=";
 const MAP_URL =
@@ -10,6 +21,39 @@ const NAV_ITEMS = [
   { href: "#insurance", label: "保険相談" },
   { href: "#maintenance", label: "ご予約" },
   { href: "#company", label: "会社概要" },
+];
+
+const GALLERY = [
+  {
+    img: galleryCarwash,
+    alt: "お客様の車を洗車するスタッフ",
+    caption: "洗車もおまかせください",
+  },
+  {
+    img: galleryMaintenance,
+    alt: "ボンネットを開けて点検中のスタッフ",
+    caption: "点検・整備もていねいに",
+  },
+  {
+    img: galleryMascot,
+    alt: "店舗前のマスコット",
+    caption: "マスコットがお出迎え",
+  },
+  {
+    img: galleryCommunity,
+    alt: "地域の皆さんと記念撮影",
+    caption: "地域のみなさんと",
+  },
+  {
+    img: galleryKerosene,
+    alt: "軽トラックに積んだ灯油のポリタンク",
+    caption: "灯油の配達も承ります",
+  },
+  {
+    img: galleryFestival,
+    alt: "地域のお祭りの屋台",
+    caption: "地域行事を応援しています",
+  },
 ];
 
 const SERVICES = [
@@ -112,12 +156,23 @@ export default function Home() {
               LINEで相談する
             </a>
           </div>
+          <Image
+            src={storefront}
+            alt="森本石油の店舗外観"
+            priority
+            className="mx-auto mt-14 w-full max-w-3xl rounded-3xl shadow-lg"
+          />
         </section>
 
         {/* ご挨拶 */}
         <section id="message" className="scroll-mt-20 bg-beige">
           <div className="mx-auto max-w-3xl px-4 py-16 sm:py-20">
             <SectionHeading>ご挨拶</SectionHeading>
+            <Image
+              src={greeting}
+              alt="代表取締役 森本敬一"
+              className="mx-auto mt-8 w-full max-w-sm rounded-2xl shadow-md"
+            />
             <div className="mt-8 space-y-5 text-lg leading-relaxed">
               <p>
                 森本石油は、祖父の創業以来、穴水町の皆さまに支えられて歩んでまいりました。
@@ -162,8 +217,29 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 日々のようす */}
+        <section id="gallery" className="scroll-mt-20 bg-beige">
+          <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20">
+            <SectionHeading>日々のようす</SectionHeading>
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
+              {GALLERY.map((item) => (
+                <figure key={item.caption}>
+                  <Image
+                    src={item.img}
+                    alt={item.alt}
+                    className="aspect-[4/3] w-full rounded-2xl object-cover shadow-sm"
+                  />
+                  <figcaption className="mt-2 text-center text-sm sm:text-base">
+                    {item.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* 保険相談 */}
-        <section id="insurance" className="scroll-mt-20 bg-beige">
+        <section id="insurance" className="scroll-mt-20">
           <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:py-20">
             <SectionHeading>生命保険のご相談</SectionHeading>
             <p className="mt-8 text-lg leading-relaxed">
@@ -183,7 +259,7 @@ export default function Home() {
         </section>
 
         {/* カーメンテナンス予約 */}
-        <section id="maintenance" className="scroll-mt-20">
+        <section id="maintenance" className="scroll-mt-20 bg-beige">
           <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:py-20">
             <SectionHeading>カーメンテナンスのご予約</SectionHeading>
             <p className="mt-8 text-lg leading-relaxed">
@@ -203,7 +279,7 @@ export default function Home() {
         </section>
 
         {/* 会社概要 */}
-        <section id="company" className="scroll-mt-20 bg-beige">
+        <section id="company" className="scroll-mt-20">
           <div className="mx-auto max-w-3xl px-4 py-16 sm:py-20">
             <SectionHeading>会社概要</SectionHeading>
             <dl className="mt-8 overflow-hidden rounded-2xl border border-ink/10 bg-white">

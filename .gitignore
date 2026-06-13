@@ -9,3 +9,6 @@
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# クロール元画像（使用分は public/images/ にコピー済み）
+/assets/
