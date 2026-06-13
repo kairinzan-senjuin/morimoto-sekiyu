@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cream: #fdf8f0;
+  --color-beige: #f0e8d8;
+  --color-ink: #44403c;
+  --color-ink-strong: #292524;
+  --color-accent: #dc2626;
+  --color-accent-dark: #b91c1c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
