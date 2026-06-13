@@ -26,8 +26,8 @@ const GROUP_SITES = [
   {
     name: "チーム能登食いしん坊",
     description: "能登食材の魅力を発信するNPO活動",
-    url: null,
-    note: "サイト移行準備中",
+    url: "https://kuishinbou.wixsite.com/noto",
+    note: null,
   },
   {
     name: "海臨山 千手院",

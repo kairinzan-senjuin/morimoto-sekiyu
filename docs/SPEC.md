@@ -135,11 +135,11 @@ shop.morimoto-sekiyu.com   ← クリエイト（EC / カラーミーショッ�
 
 森本石油をハブとした関連サイトへのリンクをまとめるセクション。
 
-| グループ名 | URL | 内容 |
-|-----------|-----|------|
-| チーム能登食いしん坊 | noto.morimoto-sekiyu.com（移行後） | 能登食材のNPO活動 |
-| 海臨山 千手院 | senjuin.morimoto-sekiyu.com | 石川県穴水町の寺院 |
-| クリエイト（EC） | shop.morimoto-sekiyu.com | 能登食材のオンラインショップ |
+| グループ名 | URL | 現URL（移行前） | 内容 |
+|-----------|-----|----------------|------|
+| チーム能登食いしん坊 | noto.morimoto-sekiyu.com（移行後） | https://kuishinbou.wixsite.com/noto | 能登食材のNPO活動 |
+| 海臨山 千手院 | senjuin.morimoto-sekiyu.com | https://kairinzan-senjuin.github.io | 石川県穴水町の寺院 |
+| クリエイト（EC） | shop.morimoto-sekiyu.com | https://create8686.com | 能登食材のオンラインショップ |
 
 ---
 
